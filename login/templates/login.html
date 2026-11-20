@@ -1,0 +1,194 @@
+{% load static %}<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saravanan M | Full-Stack Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Saravanan M, a Computer Science undergraduate building full-stack, AI-integrated and Android applications.">
+  <meta name="theme-color" content="#0D0D0D">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body{% if errors or messages %} data-focus="contact"{% endif %}>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="li" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2 3.77-2 4 0 4.78 2.6 4.78 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></symbol>
+  <symbol id="gh" viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 00-3.64 22.4c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0012 .5z"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm5 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM17.5 6a1 1 0 110 2 1 1 0 010-2z"/></symbol>
+  <symbol id="ml" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm1.5 2L12 12.5 19.5 7zM4 8.6V17h16V8.6l-8 5.9z"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#home" class="logo">SARAVANAN</a>
+    <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
+    <nav id="nav-links" aria-label="Main">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Hi, I'm Saravanan.</h1>
+        <p class="role"><span id="typed" data-words="Building Digital Experiences Through Code &amp; Innovation.|Full-Stack Developer|Android Developer|AI-Integrated Apps">Building Digital Experiences Through Code &amp; Innovation.</span><span class="cursor" aria-hidden="true"></span></p>
+        <p class="intro">I'm a Computer Science undergraduate passionate about full-stack development, AI-integrated applications, backend engineering and building technology that solves real-world problems.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#projects">View My Projects</a>
+          <a class="btn btn-ghost" href="{% static profile.resume %}" download>Download Resume</a>
+        </div>
+        <div class="socials">
+          {% for s in social %}
+          <a href="{{ s.url|default:'#' }}" aria-label="{{ s.name }}"{% if not s.url %} aria-disabled="true"{% else %} target="_blank" rel="noopener noreferrer"{% endif %}><svg class="ico"><use href="#{{ s.icon }}"/></svg></a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <div class="avatar" role="img" aria-label="Profile picture placeholder">
+          {% if profile.photo %}<img src="{% static profile.photo %}" alt="Saravanan M">{% else %}<span>SM</span>{% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="alt">
+    <div class="wrap">
+      <h2 class="sec-title reveal">About Me</h2>
+      <div class="about">
+        <div class="reveal">
+          <p>I'm Saravanan M, a Computer Science and Engineering undergraduate based in Bengaluru who enjoys turning ideas into working software, from the database and API layer to the screen in someone's hand.</p>
+          <p>My work spans full-stack web applications, AI-integrated products, backend engineering and Android development with Kotlin and Jetpack Compose. I like solving real problems, whether that is routing emergencies faster or making shared bikes easier to find, and I focus on building systems that stay practical as they scale.</p>
+        </div>
+        <dl class="facts reveal">
+          <div><dt>Name</dt><dd>Saravanan M</dd></div>
+          <div><dt>Education</dt><dd>B.E. Computer Science &amp; Engineering</dd></div>
+          <div><dt>College</dt><dd>Gopalan College of Engineering and Management (VTU)</dd></div>
+          <div><dt>Location</dt><dd>Bengaluru, Karnataka, India</dd></div>
+          <div><dt>Expected Graduation</dt><dd>June 2028</dd></div>
+          <div><dt>CGPA</dt><dd class="hl">{{ profile.cgpa }}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2 class="sec-title reveal">Technical Skills</h2>
+      <p class="sec-sub reveal">The languages, frameworks and tools I build with.</p>
+      <div class="grid3">
+        {% for group, items in skills %}
+        <article class="card reveal">
+          <h3>{{ group }}</h3>
+          <ul class="badges">{% for i in items %}<li class="badge">{{ i }}</li>{% endfor %}</ul>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="alt">
+    <div class="wrap">
+      <h2 class="sec-title reveal">Featured Projects</h2>
+      <p class="sec-sub reveal">Things I've designed and built end to end.</p>
+      <div class="projects">
+        {% for p in projects %}
+        <article class="card project reveal">
+          <h3>{{ p.title }}</h3>
+          <p class="muted">{{ p.desc }}</p>
+          <ul class="badges">{% for t in p.tech %}<li class="badge tech">{{ t }}</li>{% endfor %}</ul>
+          <ul>{% for f in p.features %}<li>{{ f }}</li>{% endfor %}</ul>
+          <div class="cta">
+            <a class="btn btn-ghost sm" href="{{ p.github|default:'#' }}"{% if p.github %} target="_blank" rel="noopener noreferrer"{% else %} aria-disabled="true" title="GitHub link coming soon"{% endif %}>GitHub</a>
+            <a class="btn btn-primary sm" href="{{ p.demo|default:'#' }}"{% if p.demo %} target="_blank" rel="noopener noreferrer"{% else %} aria-disabled="true" title="Live demo coming soon"{% endif %}>Live Demo</a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="wrap">
+      <h2 class="sec-title reveal">Achievements &amp; Hackathons</h2>
+      <p class="sec-sub reveal">Recognition earned by shipping working projects.</p>
+      <div class="grid3">
+        {% for a in achievements %}
+        <article class="card ach reveal">
+          <div class="rank">{{ a.rank }}</div>
+          <div><h3>{{ a.event }}</h3><p class="muted">{{ a.project }}</p></div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="alt">
+    <div class="wrap">
+      <h2 class="sec-title reveal">Certifications</h2>
+      <p class="sec-sub reveal">Foundations in algorithms, databases, systems and Java.</p>
+      <div class="grid3">
+        {% for c in certifications %}
+        <article class="card cert reveal">
+          <h3>{{ c.title }}</h3>
+          <p class="muted">{{ c.issuer }}</p>
+          {% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener noreferrer">View certificate</a>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="sec-title reveal">Let's Connect.</h2>
+      <p class="sec-sub reveal">Have an opportunity, interesting project or just want to discuss technology? Feel free to reach out.</p>
+      <div class="contact">
+        <div class="links">
+          {% for s in social %}
+          <a class="card link reveal" href="{{ s.url|default:'#' }}"{% if not s.url %} aria-disabled="true"{% elif s.icon != 'ml' %} target="_blank" rel="noopener noreferrer"{% endif %}>
+            <svg class="ico"><use href="#{{ s.icon }}"/></svg>
+            <span><strong>{{ s.name }}</strong><small>{{ s.desc }}</small></span>
+          </a>
+          {% endfor %}
+        </div>
+
+        <form method="post" action="{% url 'contact' %}" class="reveal" novalidate>
+          {% csrf_token %}
+          {% for m in messages %}<div class="flash" role="status">{{ m }}</div>{% endfor %}
+          <label>Name
+            <input type="text" name="name" value="{{ form.name }}" maxlength="100" required autocomplete="name">
+            {% if errors.name %}<span class="err">{{ errors.name }}</span>{% endif %}
+          </label>
+          <label>Email
+            <input type="email" name="email" value="{{ form.email }}" required autocomplete="email">
+            {% if errors.email %}<span class="err">{{ errors.email }}</span>{% endif %}
+          </label>
+          <label>Subject
+            <input type="text" name="subject" value="{{ form.subject }}" maxlength="150" required>
+            {% if errors.subject %}<span class="err">{{ errors.subject }}</span>{% endif %}
+          </label>
+          <label>Message
+            <textarea name="message" maxlength="2000" required>{{ form.message }}</textarea>
+            {% if errors.message %}<span class="err">{{ errors.message }}</span>{% endif %}
+          </label>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Saravanan M | Designed &amp; Developed with passion.</div></footer>
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
